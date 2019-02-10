@@ -80,9 +80,32 @@ namespace TheoryTest
 
         static Answer[] initAnswers()
         {
-            Answer[] tempAnswerArray = new Answer[200];
+            int arraySize = 200;
+            int assignmentCounter = 0;
+            int linkedQuestion = 0;
+            string answerText;
+            bool correctAnswer = false;
+            Answer[] tempAnswerArray = new Answer[arraySize];
 
             //this loop will automate the process of adding meaningful test values to the answer array. The data for each answer would need to be manually added for the actual answers or a JSON file would need to be used
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (assignmentCounter == 4)
+                {
+                    assignmentCounter = 0;
+                    linkedQuestion++;
+                }
+                answerText = "Answer " + i;
+                if (assignmentCounter == 3)
+                {
+                    // set every third answer to be true. This is only for testing.
+                    correctAnswer = true;
+                }
+
+                Answer tempAnswer = new Answer(linkedQuestion, answerText, correctAnswer);
+                correctAnswer = false;
+                assignmentCounter++;
+            }
 
             return tempAnswerArray;
         }
