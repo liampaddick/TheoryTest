@@ -16,5 +16,15 @@ namespace TheoryTest
         {
             InitializeComponent();
         }
+
+        private void StartTestButton_Click(object sender, EventArgs e)
+        {
+            MainMenuText.Text = "start button pressed";
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            MainMenuText.Text = "exit button pressed";
+        }
     }
 }
