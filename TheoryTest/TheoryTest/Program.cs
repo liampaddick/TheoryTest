@@ -17,6 +17,13 @@ namespace TheoryTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+            Question[] questionArray = new Question[50];
+            Answer[] answerArray = new Answer[200];
+
+            //init answers before questions
+            answerArray = initAnswers();
+            questionArray = initQuestions();
         }
         static Question[] initQuestions()
         {
@@ -37,30 +44,74 @@ namespace TheoryTest
         string localQuestionText;
         Answer[] localPossibleAnswerArray = new Answer[4];
 
-        public Question(int id, string questionText, Answer answer1, Answer answer2, Answer answer3, Answer answer4)
+        public static int questionCount;
+
+        public Question(string questionText, Answer answer1, Answer answer2, Answer answer3, Answer answer4)
         {
-            localID = id;
+            localID = questionCount;
             localQuestionText = questionText;
             localPossibleAnswerArray[0] = answer1;
             localPossibleAnswerArray[1] = answer2;
             localPossibleAnswerArray[2] = answer3;
             localPossibleAnswerArray[3] = answer4;
+
+            questionCount++;
+        }
+
+        public int GetQuestionID()
+        {
+            return localID;
+        }
+
+        public string GetQuestionText()
+        {
+            return localQuestionText;
+        }
+
+        public Answer[] GetPossibleAnswerArray()
+        {
+            return localPossibleAnswerArray;
         }
     }
 
     class Answer
     {
         int localLinkedQuestionID;
-        int localAnswerID;
+        int localID;
         string localAnswerText;
         bool localCorrectAnswer;
 
-        public Answer(int linkedQuestionID, int answerID, string answerText, bool correctAnswer)
+        public static int answerCount;
+
+        public Answer(int linkedQuestionID, string answerText, bool correctAnswer)
         {
             localLinkedQuestionID = linkedQuestionID;
-            localAnswerID = answerID;
+            localID = answerCount;
             localAnswerText = answerText;
             localCorrectAnswer = correctAnswer;
+
+            answerCount++;
         }
+
+        public int GetLinkedQuestionID()
+        {
+            return localLinkedQuestionID;
+        }
+
+        public int GetAnswerID()
+        {
+            return localID;
+        }
+
+        public string GetAnswerText()
+        {
+            return localAnswerText;
+        }
+
+        public bool GetCorrectAnswer()
+        {
+            return localCorrectAnswer;
+        }
+
     }
 }
