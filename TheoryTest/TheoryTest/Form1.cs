@@ -20,11 +20,12 @@ namespace TheoryTest
         private void StartTestButton_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "start button pressed";
+            //get 3 random questions from bank
         }
 
         private void Exit_Click(object sender, EventArgs e)
         {
-            MainMenuText.Text = "exit button pressed";
+            Close();
         }
     }
 }
