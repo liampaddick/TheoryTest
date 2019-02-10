@@ -23,17 +23,67 @@ namespace TheoryTest
 
             //init answers before questions
             answerArray = initAnswers();
-            questionArray = initQuestions();
+            questionArray = initQuestions(answerArray);
         }
-        static Question[] initQuestions()
+        static Question[] initQuestions(Answer[] passedAnswerArray)
         {
-            Question[] tempQuestionArray = new Question[50];
+            int arraySize = 50;
+
+            int answer1Index = 0;
+            int answer2Index = 0;
+            int answer3Index = 0;
+            int answer4Index = 0;
+
+            int baseIndex = 0;
+
+            string questionText;
+
+
+            Answer answer1 = passedAnswerArray[0];
+            Answer answer2 = passedAnswerArray[0];
+            Answer answer3 = passedAnswerArray[0];
+            Answer answer4 = passedAnswerArray[0];
+
+
+            Question[] tempQuestionArray = new Question[arraySize];
+
+            //this loop will automate the process of adding meaningful test values to the question array. The data for each question would need to be manually added for the actual questions or a JSON file would need to be used
+            for (int i = 0; i < arraySize; i++)
+            {
+                questionText = "Question " + i;
+
+                if (i == 0)
+                {
+                    baseIndex = i;
+                }
+
+                answer1Index = baseIndex;
+                answer2Index = baseIndex + 1;
+                answer3Index = baseIndex + 2;
+                answer4Index = baseIndex + 3;
+
+                answer1 = passedAnswerArray[answer1Index];
+                answer2 = passedAnswerArray[answer2Index];
+                answer3 = passedAnswerArray[answer3Index];
+                answer4 = passedAnswerArray[answer4Index];
+
+                Question tempQuestion = new Question(questionText, answer1, answer2, answer3, answer4);
+
+                tempQuestionArray[i] = tempQuestion;
+                if (i != arraySize)
+                {
+                    baseIndex = baseIndex + 4;
+                }
+            }
             return tempQuestionArray;
         }
 
         static Answer[] initAnswers()
         {
             Answer[] tempAnswerArray = new Answer[200];
+
+            //this loop will automate the process of adding meaningful test values to the answer array. The data for each answer would need to be manually added for the actual answers or a JSON file would need to be used
+
             return tempAnswerArray;
         }
     }
