@@ -21,6 +21,8 @@ namespace TheoryTest
             Question[] questionArray = new Question[50];
             Answer[] answerArray = new Answer[200];
 
+            Question[] threeQuestionArray = new Question[3];
+
             //init answers before questions
             answerArray = initAnswers();
             questionArray = initQuestions(answerArray);
@@ -77,7 +79,6 @@ namespace TheoryTest
             }
             return tempQuestionArray;
         }
-
         static Answer[] initAnswers()
         {
             int arraySize = 200;
@@ -108,6 +109,47 @@ namespace TheoryTest
             }
 
             return tempAnswerArray;
+        }
+
+        public static Question[] PickQuestions(Question[] bankOfQuestions, int amountToPick)
+        {
+            int arraySize = amountToPick;
+            int randomNumber;
+            Random random = new Random();
+            Question[] tempQuestionArray = new Question[arraySize];
+            bool[] pickedQuestions = new bool[bankOfQuestions.Length];
+            bool keepPickingRandom = false;
+
+            for (int i = 0; i < arraySize; i++)
+            {
+                if (i == 0)
+                {
+                    randomNumber = random.Next(bankOfQuestions.Length);
+                    tempQuestionArray[i] = bankOfQuestions[randomNumber];
+                    pickedQuestions[randomNumber] = true;
+                }
+                else
+                {
+                    randomNumber = random.Next(bankOfQuestions.Length);
+                    if (pickedQuestions[randomNumber] == true)
+                    {
+                        keepPickingRandom = true;
+                    }
+
+                    while (keepPickingRandom == true)
+                    {
+                        randomNumber = random.Next(bankOfQuestions.Length);
+                        if (pickedQuestions[randomNumber] == false)
+                        {
+                            tempQuestionArray[i] = bankOfQuestions[randomNumber];
+                            pickedQuestions[randomNumber] = true;
+                            keepPickingRandom = false;
+                        }
+                    }
+
+                }
+            }
+            return tempQuestionArray;
         }
     }
 
