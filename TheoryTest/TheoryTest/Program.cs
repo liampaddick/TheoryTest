@@ -21,9 +21,13 @@ namespace TheoryTest
             Question[] questionArray = new Question[50];
             Answer[] answerArray = new Answer[200];
 
-            Question[] threeQuestionArray = new Question[3];
+            Question[] randomQuestionArray = new Question[50];
 
-            //init answers before questions
+            /////////////////////////////////////////////////////////
+            // move array init and such into Form1.cs
+            ////////////////////////////////////////////////////////
+
+            //init answers before questionsS
             answerArray = initAnswers();
             questionArray = initQuestions(answerArray);
         }
@@ -111,6 +115,11 @@ namespace TheoryTest
             return tempAnswerArray;
         }
 
+        public static Question[] GetQuestionArray(Question[] questionArray)
+        {
+            return questionArray;
+        }
+
         public static Question[] PickQuestions(Question[] bankOfQuestions, int amountToPick)
         {
             int arraySize = amountToPick;
@@ -188,7 +197,6 @@ namespace TheoryTest
             return localPossibleAnswerArray;
         }
     }
-
     class Answer
     {
         int localLinkedQuestionID;
