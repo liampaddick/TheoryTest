@@ -15,7 +15,6 @@ namespace TheoryTest
 
         Question[] questionArray = new Question[50];
         Answer[] answerArray = new Answer[200];
-
         Question[] randomQuestionArray = new Question[50];
 
         public Form1()
@@ -27,18 +26,19 @@ namespace TheoryTest
             questionArray = initQuestions(answerArray);
         }
 
+        //Form Functions
         private void StartTestButton_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "start button pressed";
             //get 3 random questions from bank
             randomQuestionArray = PickQuestions(questionArray, 5);
         }
-
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        //Non Form Functions
         private Question[] initQuestions(Answer[] passedAnswerArray)
         {
             int arraySize = 50;
@@ -84,6 +84,7 @@ namespace TheoryTest
                 Question tempQuestion = new Question(questionText, answer1, answer2, answer3, answer4);
 
                 tempQuestionArray[i] = tempQuestion;
+
                 if (i != arraySize)
                 {
                     baseIndex = baseIndex + 4;
@@ -91,7 +92,6 @@ namespace TheoryTest
             }
             return tempQuestionArray;
         }
-
         private Answer[] initAnswers()
         {
             int arraySize = 200;
@@ -117,13 +117,12 @@ namespace TheoryTest
                 }
 
                 Answer tempAnswer = new Answer(linkedQuestion, answerText, correctAnswer);
+                tempAnswerArray[i] = tempAnswer;
                 correctAnswer = false;
                 assignmentCounter++;
             }
-
             return tempAnswerArray;
         }
-
         public Question[] PickQuestions(Question[] bankOfQuestions, int amountToPick)
         {
             int arraySize = amountToPick;
