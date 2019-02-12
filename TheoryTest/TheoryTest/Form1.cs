@@ -16,6 +16,7 @@ namespace TheoryTest
         Answer[] answerArray = new Answer[200];
         Question[] randomQuestionArray = new Question[50];
         int QuestionNo = 0;
+        int CorrectAnswers = 0;
 
         public Form1()
         {
@@ -42,21 +43,31 @@ namespace TheoryTest
         private void AnswerButton1_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "AnswerButton1 pressed";
+            Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
+            CheckCorrectQuestion(tempAnswerArray[0]);
+            NextQuestion();
         }
         private void AnswerButton2_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "AnswerButton2 pressed";
-
+            Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
+            CheckCorrectQuestion(tempAnswerArray[1]);
+            NextQuestion();
         }
         private void AnswerButton3_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "AnswerButton3 pressed";
+            Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
+            CheckCorrectQuestion(tempAnswerArray[2]);
+            NextQuestion();
 
         }
         private void AnswerButton4_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "AnswerButton4 pressed";
-
+            Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
+            CheckCorrectQuestion(tempAnswerArray[3]);
+            NextQuestion();
         }
 
         private void HideAndShowForQuiz()
@@ -72,6 +83,8 @@ namespace TheoryTest
             AnswerButton2.Visible = true;
             AnswerButton3.Visible = true;
             AnswerButton4.Visible = true;
+            CorrectAnswersLabel.Visible = true;
+            CorrectAnswerNoLabel.Visible = true;
 
             SetQuestionTextAndNumbers();
             SetAnswerButtonText();
@@ -219,6 +232,23 @@ namespace TheoryTest
                 }
             }
             return tempQuestionArray;
+        }
+        private void CheckCorrectQuestion(Answer answerToCheck)
+        {
+            if (answerToCheck.GetCorrectAnswer() == true)
+            {
+                CorrectAnswers = CorrectAnswers + 1;
+                CorrectAnswerNoLabel.Text = "" + CorrectAnswers;
+            }
+        }
+        private void NextQuestion()
+        {
+            if (QuestionNo < 5)
+            {
+                QuestionNo++;
+                SetQuestionTextAndNumbers();
+                SetAnswerButtonText();
+            }
         }
     }
 

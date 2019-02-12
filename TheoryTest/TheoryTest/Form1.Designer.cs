@@ -38,6 +38,8 @@
             this.QuestionTextLabel = new System.Windows.Forms.Label();
             this.QuestionCounterLabel = new System.Windows.Forms.Label();
             this.TotalNoOfQuestionsLabel = new System.Windows.Forms.Label();
+            this.CorrectAnswersLabel = new System.Windows.Forms.Label();
+            this.CorrectAnswerNoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StartTestButton
@@ -147,11 +149,33 @@
             this.TotalNoOfQuestionsLabel.Text = " / NoOfQuestions";
             this.TotalNoOfQuestionsLabel.Visible = false;
             // 
+            // CorrectAnswersLabel
+            // 
+            this.CorrectAnswersLabel.AutoSize = true;
+            this.CorrectAnswersLabel.Location = new System.Drawing.Point(83, 191);
+            this.CorrectAnswersLabel.Name = "CorrectAnswersLabel";
+            this.CorrectAnswersLabel.Size = new System.Drawing.Size(87, 13);
+            this.CorrectAnswersLabel.TabIndex = 10;
+            this.CorrectAnswersLabel.Text = "CorrectAnswers: ";
+            this.CorrectAnswersLabel.Visible = false;
+            // 
+            // CorrectAnswerNoLabel
+            // 
+            this.CorrectAnswerNoLabel.AutoSize = true;
+            this.CorrectAnswerNoLabel.Location = new System.Drawing.Point(177, 191);
+            this.CorrectAnswerNoLabel.Name = "CorrectAnswerNoLabel";
+            this.CorrectAnswerNoLabel.Size = new System.Drawing.Size(13, 13);
+            this.CorrectAnswerNoLabel.TabIndex = 11;
+            this.CorrectAnswerNoLabel.Text = "0";
+            this.CorrectAnswerNoLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.CorrectAnswerNoLabel);
+            this.Controls.Add(this.CorrectAnswersLabel);
             this.Controls.Add(this.TotalNoOfQuestionsLabel);
             this.Controls.Add(this.QuestionCounterLabel);
             this.Controls.Add(this.QuestionTextLabel);
@@ -181,6 +205,8 @@
         private System.Windows.Forms.Label QuestionTextLabel;
         private System.Windows.Forms.Label QuestionCounterLabel;
         private System.Windows.Forms.Label TotalNoOfQuestionsLabel;
+        private System.Windows.Forms.Label CorrectAnswersLabel;
+        private System.Windows.Forms.Label CorrectAnswerNoLabel;
     }
 }
 
