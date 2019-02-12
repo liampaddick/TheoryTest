@@ -36,6 +36,8 @@
             this.AnswerButton3 = new System.Windows.Forms.Button();
             this.AnswerButton4 = new System.Windows.Forms.Button();
             this.QuestionTextLabel = new System.Windows.Forms.Label();
+            this.QuestionCounterLabel = new System.Windows.Forms.Label();
+            this.TotalNoOfQuestionsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // StartTestButton
@@ -76,6 +78,8 @@
             this.AnswerButton1.TabIndex = 3;
             this.AnswerButton1.Text = "AnswerButton1";
             this.AnswerButton1.UseVisualStyleBackColor = true;
+            this.AnswerButton1.Visible = false;
+            this.AnswerButton1.Click += new System.EventHandler(this.AnswerButton1_Click);
             // 
             // AnswerButton2
             // 
@@ -85,6 +89,8 @@
             this.AnswerButton2.TabIndex = 4;
             this.AnswerButton2.Text = "AnswerButton2";
             this.AnswerButton2.UseVisualStyleBackColor = true;
+            this.AnswerButton2.Visible = false;
+            this.AnswerButton2.Click += new System.EventHandler(this.AnswerButton2_Click);
             // 
             // AnswerButton3
             // 
@@ -94,6 +100,8 @@
             this.AnswerButton3.TabIndex = 5;
             this.AnswerButton3.Text = "AnswerButton3";
             this.AnswerButton3.UseVisualStyleBackColor = true;
+            this.AnswerButton3.Visible = false;
+            this.AnswerButton3.Click += new System.EventHandler(this.AnswerButton3_Click);
             // 
             // AnswerButton4
             // 
@@ -103,6 +111,8 @@
             this.AnswerButton4.TabIndex = 6;
             this.AnswerButton4.Text = "AnswerButton4";
             this.AnswerButton4.UseVisualStyleBackColor = true;
+            this.AnswerButton4.Visible = false;
+            this.AnswerButton4.Click += new System.EventHandler(this.AnswerButton4_Click);
             // 
             // QuestionTextLabel
             // 
@@ -113,12 +123,37 @@
             this.QuestionTextLabel.Size = new System.Drawing.Size(189, 20);
             this.QuestionTextLabel.TabIndex = 7;
             this.QuestionTextLabel.Text = "Question Text Goes Here";
+            this.QuestionTextLabel.Visible = false;
+            // 
+            // QuestionCounterLabel
+            // 
+            this.QuestionCounterLabel.AutoSize = true;
+            this.QuestionCounterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.QuestionCounterLabel.Location = new System.Drawing.Point(9, 9);
+            this.QuestionCounterLabel.Name = "QuestionCounterLabel";
+            this.QuestionCounterLabel.Size = new System.Drawing.Size(93, 20);
+            this.QuestionCounterLabel.TabIndex = 8;
+            this.QuestionCounterLabel.Text = "QuestionNo";
+            this.QuestionCounterLabel.Visible = false;
+            // 
+            // TotalNoOfQuestionsLabel
+            // 
+            this.TotalNoOfQuestionsLabel.AutoSize = true;
+            this.TotalNoOfQuestionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.TotalNoOfQuestionsLabel.Location = new System.Drawing.Point(100, 9);
+            this.TotalNoOfQuestionsLabel.Name = "TotalNoOfQuestionsLabel";
+            this.TotalNoOfQuestionsLabel.Size = new System.Drawing.Size(130, 20);
+            this.TotalNoOfQuestionsLabel.TabIndex = 9;
+            this.TotalNoOfQuestionsLabel.Text = " / NoOfQuestions";
+            this.TotalNoOfQuestionsLabel.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.TotalNoOfQuestionsLabel);
+            this.Controls.Add(this.QuestionCounterLabel);
             this.Controls.Add(this.QuestionTextLabel);
             this.Controls.Add(this.AnswerButton4);
             this.Controls.Add(this.AnswerButton3);
@@ -144,6 +179,8 @@
         private System.Windows.Forms.Button AnswerButton3;
         private System.Windows.Forms.Button AnswerButton4;
         private System.Windows.Forms.Label QuestionTextLabel;
+        private System.Windows.Forms.Label QuestionCounterLabel;
+        private System.Windows.Forms.Label TotalNoOfQuestionsLabel;
     }
 }
 

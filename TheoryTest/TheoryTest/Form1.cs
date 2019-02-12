@@ -12,10 +12,10 @@ namespace TheoryTest
 {
     public partial class Form1 : Form
     {
-
         Question[] questionArray = new Question[50];
         Answer[] answerArray = new Answer[200];
         Question[] randomQuestionArray = new Question[50];
+        int QuestionNo = 0;
 
         public Form1()
         {
@@ -32,10 +32,63 @@ namespace TheoryTest
             MainMenuText.Text = "start button pressed";
             //get 3 random questions from bank
             randomQuestionArray = PickQuestions(questionArray, 5);
+            HideAndShowForQuiz();
         }
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void AnswerButton1_Click(object sender, EventArgs e)
+        {
+            MainMenuText.Text = "AnswerButton1 pressed";
+        }
+        private void AnswerButton2_Click(object sender, EventArgs e)
+        {
+            MainMenuText.Text = "AnswerButton2 pressed";
+
+        }
+        private void AnswerButton3_Click(object sender, EventArgs e)
+        {
+            MainMenuText.Text = "AnswerButton3 pressed";
+
+        }
+        private void AnswerButton4_Click(object sender, EventArgs e)
+        {
+            MainMenuText.Text = "AnswerButton4 pressed";
+
+        }
+
+        private void HideAndShowForQuiz()
+        {
+            MainMenuText.Visible = false;
+            StartTestButton.Visible = false;
+            Exit.Visible = false;
+
+            QuestionCounterLabel.Visible = true;
+            TotalNoOfQuestionsLabel.Visible = true;
+            QuestionTextLabel.Visible = true;
+            AnswerButton1.Visible = true;
+            AnswerButton2.Visible = true;
+            AnswerButton3.Visible = true;
+            AnswerButton4.Visible = true;
+
+            SetQuestionTextAndNumbers();
+            SetAnswerButtonText();
+        }
+        private void SetQuestionTextAndNumbers()
+        {
+            QuestionTextLabel.Text = randomQuestionArray[QuestionNo].GetQuestionText();
+            QuestionCounterLabel.Text = "" + (QuestionNo + 1) + " ";
+            TotalNoOfQuestionsLabel.Text = "/ 5";
+        }
+        private void SetAnswerButtonText()
+        {
+            Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
+            AnswerButton1.Text = tempAnswerArray[0].GetAnswerText();
+            AnswerButton2.Text = tempAnswerArray[1].GetAnswerText();
+            AnswerButton3.Text = tempAnswerArray[2].GetAnswerText();
+            AnswerButton4.Text = tempAnswerArray[3].GetAnswerText();
         }
 
         //Non Form Functions
@@ -123,7 +176,7 @@ namespace TheoryTest
             }
             return tempAnswerArray;
         }
-        public Question[] PickQuestions(Question[] bankOfQuestions, int amountToPick)
+        private Question[] PickQuestions(Question[] bankOfQuestions, int amountToPick)
         {
             int arraySize = amountToPick;
             int randomNumber;
