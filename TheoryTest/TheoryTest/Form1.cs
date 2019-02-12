@@ -89,6 +89,22 @@ namespace TheoryTest
             SetQuestionTextAndNumbers();
             SetAnswerButtonText();
         }
+        private void HideForResults()
+        {
+            MainMenuText.Visible = false;
+            StartTestButton.Visible = false;
+            Exit.Visible = false;
+
+            QuestionCounterLabel.Visible = false;
+            TotalNoOfQuestionsLabel.Visible = false;
+            QuestionTextLabel.Visible = false;
+            AnswerButton1.Visible = false;
+            AnswerButton2.Visible = false;
+            AnswerButton3.Visible = false;
+            AnswerButton4.Visible = false;
+            CorrectAnswersLabel.Visible = true;
+            CorrectAnswerNoLabel.Visible = true;
+        }
         private void SetQuestionTextAndNumbers()
         {
             QuestionTextLabel.Text = randomQuestionArray[QuestionNo].GetQuestionText();
@@ -243,11 +259,15 @@ namespace TheoryTest
         }
         private void NextQuestion()
         {
-            if (QuestionNo < 5)
+            if (QuestionNo < 4)
             {
                 QuestionNo++;
                 SetQuestionTextAndNumbers();
                 SetAnswerButtonText();
+            }
+            else
+            {
+                HideForResults();
             }
         }
     }
