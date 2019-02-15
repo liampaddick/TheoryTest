@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace TheoryTest
 {
+    //Please note, this is a work in progress and is not finished yet. There may be issues with the code that have not been found.
+    //For testing purposes the questions and answers are set to generic text such as "Question 3" and "Answer 12" also, for the purpose of testing, every 4th answer (bottom right button) has been set to the correct answer.
+    //currently only 5 questions are pulled from the bank of 50. The choice to change this will be added later along with a range of other features.
     public partial class Form1 : Form
     {
         Question[] questionArray = new Question[50];
