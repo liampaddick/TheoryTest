@@ -15,25 +15,28 @@ namespace TheoryTest
         public Form2(List<bool> passedResults)
         {
             InitializeComponent();
-            List<bool> localResultsList = new List<bool> { };
             List<Button> createdButtonsList = new List<Button> { };
-            localResultsList = passedResults;
+            buttonCreation(passedResults);
+        }
+        private List<Button> buttonCreation (List<bool> resultsList)
+        {
             int startingXCo = 50;
             int xCo = 50;
             int yCo = 50;
             int multiplier = 0;
+            List<Button> tempButtonList = new List<Button> { };
 
-            for (int i = 0; i < localResultsList.Count(); i++)
+            for (int i = 0; i < resultsList.Count(); i++)
             {
                 Button tempButton = new Button();
                 tempButton.Name = "Button" + i.ToString();
                 tempButton.Text = tempButton.Name;
                 tempButton.Size = new Size(20, 20);
-                if (localResultsList[i] == true)
+                if (resultsList[i] == true)
                 {
                     tempButton.BackColor = Color.Green;
                 }
-                else if (localResultsList[i] == false)
+                else if (resultsList[i] == false)
                 {
                     tempButton.BackColor = Color.Red;
                 }
@@ -47,9 +50,10 @@ namespace TheoryTest
 
                 tempButton.Location = new Point(xCo + (xCo * multiplier), yCo);
                 multiplier++;
-                createdButtonsList.Add(tempButton);
+                tempButtonList.Add(tempButton);
                 Controls.Add(tempButton);
             }
+            return tempButtonList;
         }
     }
 }
