@@ -40,21 +40,26 @@
             this.TotalNoOfQuestionsLabel = new System.Windows.Forms.Label();
             this.CorrectAnswersLabel = new System.Windows.Forms.Label();
             this.CorrectAnswerNoLabel = new System.Windows.Forms.Label();
+            this.TenQuestionButton = new System.Windows.Forms.Button();
+            this.TwentyQuestionButton = new System.Windows.Forms.Button();
+            this.FortyQuestionButton = new System.Windows.Forms.Button();
+            this.ThirtyQuestionButton = new System.Windows.Forms.Button();
+            this.FiftyQuestionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StartTestButton
             // 
-            this.StartTestButton.Location = new System.Drawing.Point(104, 65);
+            this.StartTestButton.Location = new System.Drawing.Point(104, 54);
             this.StartTestButton.Name = "StartTestButton";
-            this.StartTestButton.Size = new System.Drawing.Size(75, 23);
+            this.StartTestButton.Size = new System.Drawing.Size(86, 23);
             this.StartTestButton.TabIndex = 0;
-            this.StartTestButton.Text = "Start Test";
+            this.StartTestButton.Text = "5 Questions";
             this.StartTestButton.UseVisualStyleBackColor = true;
             this.StartTestButton.Click += new System.EventHandler(this.StartTestButton_Click);
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(104, 109);
+            this.Exit.Location = new System.Drawing.Point(108, 226);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(75, 23);
             this.Exit.TabIndex = 1;
@@ -169,11 +174,66 @@
             this.CorrectAnswerNoLabel.Text = "0";
             this.CorrectAnswerNoLabel.Visible = false;
             // 
+            // TenQuestionButton
+            // 
+            this.TenQuestionButton.Location = new System.Drawing.Point(104, 83);
+            this.TenQuestionButton.Name = "TenQuestionButton";
+            this.TenQuestionButton.Size = new System.Drawing.Size(86, 23);
+            this.TenQuestionButton.TabIndex = 12;
+            this.TenQuestionButton.Text = "10 Questions";
+            this.TenQuestionButton.UseVisualStyleBackColor = true;
+            this.TenQuestionButton.Click += new System.EventHandler(this.TenQuestionButton_Click);
+            // 
+            // TwentyQuestionButton
+            // 
+            this.TwentyQuestionButton.Location = new System.Drawing.Point(104, 112);
+            this.TwentyQuestionButton.Name = "TwentyQuestionButton";
+            this.TwentyQuestionButton.Size = new System.Drawing.Size(86, 23);
+            this.TwentyQuestionButton.TabIndex = 13;
+            this.TwentyQuestionButton.Text = "20 Questions";
+            this.TwentyQuestionButton.UseVisualStyleBackColor = true;
+            this.TwentyQuestionButton.Click += new System.EventHandler(this.TwentyQuestionButton_Click);
+            // 
+            // FortyQuestionButton
+            // 
+            this.FortyQuestionButton.Location = new System.Drawing.Point(104, 170);
+            this.FortyQuestionButton.Name = "FortyQuestionButton";
+            this.FortyQuestionButton.Size = new System.Drawing.Size(86, 23);
+            this.FortyQuestionButton.TabIndex = 15;
+            this.FortyQuestionButton.Text = "40 Questions";
+            this.FortyQuestionButton.UseVisualStyleBackColor = true;
+            this.FortyQuestionButton.Click += new System.EventHandler(this.FortyQuestionButton_Click);
+            // 
+            // ThirtyQuestionButton
+            // 
+            this.ThirtyQuestionButton.Location = new System.Drawing.Point(104, 141);
+            this.ThirtyQuestionButton.Name = "ThirtyQuestionButton";
+            this.ThirtyQuestionButton.Size = new System.Drawing.Size(86, 23);
+            this.ThirtyQuestionButton.TabIndex = 14;
+            this.ThirtyQuestionButton.Text = "30 Questions";
+            this.ThirtyQuestionButton.UseVisualStyleBackColor = true;
+            this.ThirtyQuestionButton.Click += new System.EventHandler(this.ThirtyQuestionButton_Click);
+            // 
+            // FiftyQuestionButton
+            // 
+            this.FiftyQuestionButton.Location = new System.Drawing.Point(104, 199);
+            this.FiftyQuestionButton.Name = "FiftyQuestionButton";
+            this.FiftyQuestionButton.Size = new System.Drawing.Size(86, 23);
+            this.FiftyQuestionButton.TabIndex = 16;
+            this.FiftyQuestionButton.Text = "50 Questions";
+            this.FiftyQuestionButton.UseVisualStyleBackColor = true;
+            this.FiftyQuestionButton.Click += new System.EventHandler(this.FiftyQuestionButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.FiftyQuestionButton);
+            this.Controls.Add(this.FortyQuestionButton);
+            this.Controls.Add(this.ThirtyQuestionButton);
+            this.Controls.Add(this.TwentyQuestionButton);
+            this.Controls.Add(this.TenQuestionButton);
             this.Controls.Add(this.CorrectAnswerNoLabel);
             this.Controls.Add(this.CorrectAnswersLabel);
             this.Controls.Add(this.TotalNoOfQuestionsLabel);
@@ -207,6 +267,11 @@
         private System.Windows.Forms.Label TotalNoOfQuestionsLabel;
         private System.Windows.Forms.Label CorrectAnswersLabel;
         private System.Windows.Forms.Label CorrectAnswerNoLabel;
+        private System.Windows.Forms.Button TenQuestionButton;
+        private System.Windows.Forms.Button TwentyQuestionButton;
+        private System.Windows.Forms.Button FortyQuestionButton;
+        private System.Windows.Forms.Button ThirtyQuestionButton;
+        private System.Windows.Forms.Button FiftyQuestionButton;
     }
 }
 

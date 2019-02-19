@@ -23,6 +23,7 @@ namespace TheoryTest
 
         int QuestionNo = 0;
         int CorrectAnswers = 0;
+        int NoOfQuestions = 0;
 
         public Form1()
         {
@@ -36,11 +37,46 @@ namespace TheoryTest
         //Form Functions
         private void StartTestButton_Click(object sender, EventArgs e)
         {
-            MainMenuText.Text = "start button pressed";
-            //get 3 random questions from bank
-            randomQuestionArray = PickQuestions(questionArray, 5);
+            NoOfQuestions = 5;
+            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
             HideAndShowForQuiz();
         }
+
+        private void TenQuestionButton_Click(object sender, EventArgs e)
+        {
+            NoOfQuestions = 10;
+            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
+            HideAndShowForQuiz();
+        }
+
+        private void TwentyQuestionButton_Click(object sender, EventArgs e)
+        {
+            NoOfQuestions = 20;
+            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
+            HideAndShowForQuiz();
+        }
+
+        private void ThirtyQuestionButton_Click(object sender, EventArgs e)
+        {
+            NoOfQuestions = 30;
+            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
+            HideAndShowForQuiz();
+        }
+
+        private void FortyQuestionButton_Click(object sender, EventArgs e)
+        {
+            NoOfQuestions = 40;
+            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
+            HideAndShowForQuiz();
+        }
+
+        private void FiftyQuestionButton_Click(object sender, EventArgs e)
+        {
+            NoOfQuestions = 50;
+            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
+            HideAndShowForQuiz();
+        }
+
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
@@ -80,6 +116,11 @@ namespace TheoryTest
         {
             MainMenuText.Visible = false;
             StartTestButton.Visible = false;
+            TenQuestionButton.Visible = false;
+            TwentyQuestionButton.Visible = false;
+            ThirtyQuestionButton.Visible = false;
+            FortyQuestionButton.Visible = false;
+            FiftyQuestionButton.Visible = false;
             Exit.Visible = false;
 
             QuestionCounterLabel.Visible = true;
@@ -97,27 +138,14 @@ namespace TheoryTest
         }
         private void HideForResults()
         {
-            MainMenuText.Visible = false;
-            StartTestButton.Visible = false;
-            Exit.Visible = false;
-
-            QuestionCounterLabel.Visible = false;
-            TotalNoOfQuestionsLabel.Visible = false;
-            QuestionTextLabel.Visible = false;
-            AnswerButton1.Visible = false;
-            AnswerButton2.Visible = false;
-            AnswerButton3.Visible = false;
-            AnswerButton4.Visible = false;
-            CorrectAnswersLabel.Visible = true;
-            CorrectAnswerNoLabel.Visible = true;
-
             new Form2(resultsTrackingList).Show();
+            Hide();
         }
         private void SetQuestionTextAndNumbers()
         {
             QuestionTextLabel.Text = randomQuestionArray[QuestionNo].GetQuestionText();
             QuestionCounterLabel.Text = "" + (QuestionNo + 1) + " ";
-            TotalNoOfQuestionsLabel.Text = "/ 5";
+            TotalNoOfQuestionsLabel.Text = "/ " + NoOfQuestions.ToString();
         }
         private void SetAnswerButtonText()
         {
@@ -272,7 +300,7 @@ namespace TheoryTest
         }
         private void NextQuestion()
         {
-            if (QuestionNo < 4)
+            if (QuestionNo < NoOfQuestions - 1)
             {
                 QuestionNo++;
                 SetQuestionTextAndNumbers();
