@@ -110,6 +110,8 @@ namespace TheoryTest
             AnswerButton4.Visible = false;
             CorrectAnswersLabel.Visible = true;
             CorrectAnswerNoLabel.Visible = true;
+
+            new Form2(resultsTrackingList).Show();
         }
         private void SetQuestionTextAndNumbers()
         {
