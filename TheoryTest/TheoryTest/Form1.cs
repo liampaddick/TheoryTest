@@ -18,6 +18,9 @@ namespace TheoryTest
         Question[] questionArray = new Question[50];
         Answer[] answerArray = new Answer[200];
         Question[] randomQuestionArray = new Question[50];
+
+        List<bool> resultsTrackingList = new List<bool> {};
+
         int QuestionNo = 0;
         int CorrectAnswers = 0;
 
@@ -258,6 +261,11 @@ namespace TheoryTest
             {
                 CorrectAnswers = CorrectAnswers + 1;
                 CorrectAnswerNoLabel.Text = "" + CorrectAnswers;
+                resultsTrackingList.Add(true);
+            }
+            else
+            {
+                resultsTrackingList.Add(false);
             }
         }
         private void NextQuestion()
