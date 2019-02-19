@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartTestButton = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
             this.MainMenuText = new System.Windows.Forms.Label();
             this.AnswerButton1 = new System.Windows.Forms.Button();
@@ -46,16 +45,6 @@
             this.ThirtyQuestionButton = new System.Windows.Forms.Button();
             this.FiftyQuestionButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // StartTestButton
-            // 
-            this.StartTestButton.Location = new System.Drawing.Point(104, 54);
-            this.StartTestButton.Name = "StartTestButton";
-            this.StartTestButton.Size = new System.Drawing.Size(86, 23);
-            this.StartTestButton.TabIndex = 0;
-            this.StartTestButton.Text = "5 Questions";
-            this.StartTestButton.UseVisualStyleBackColor = true;
-            this.StartTestButton.Click += new System.EventHandler(this.StartTestButton_Click);
             // 
             // Exit
             // 
@@ -245,7 +234,6 @@
             this.Controls.Add(this.AnswerButton1);
             this.Controls.Add(this.MainMenuText);
             this.Controls.Add(this.Exit);
-            this.Controls.Add(this.StartTestButton);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -254,8 +242,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button StartTestButton;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Label MainMenuText;
         private System.Windows.Forms.Button AnswerButton1;

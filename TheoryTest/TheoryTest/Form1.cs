@@ -35,12 +35,6 @@ namespace TheoryTest
         }
 
         //Form Functions
-        private void StartTestButton_Click(object sender, EventArgs e)
-        {
-            NoOfQuestions = 5;
-            randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
-            HideAndShowForQuiz();
-        }
 
         private void TenQuestionButton_Click(object sender, EventArgs e)
         {
@@ -115,7 +109,6 @@ namespace TheoryTest
         private void HideAndShowForQuiz()
         {
             MainMenuText.Visible = false;
-            StartTestButton.Visible = false;
             TenQuestionButton.Visible = false;
             TwentyQuestionButton.Visible = false;
             ThirtyQuestionButton.Visible = false;
