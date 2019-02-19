@@ -19,17 +19,24 @@ namespace TheoryTest
             List<Button> createdButtonsList = new List<Button> { };
             localResultsList = passedResults;
             int startingXCo = 50;
-            int startingYCo = 50;
             int xCo = 50;
             int yCo = 50;
             int multiplier = 0;
 
-            for (int i = 0; i < localResultsList.Count() + 5; i++)
+            for (int i = 0; i < localResultsList.Count(); i++)
             {
                 Button tempButton = new Button();
                 tempButton.Name = "Button" + i.ToString();
                 tempButton.Text = tempButton.Name;
                 tempButton.Size = new Size(20, 20);
+                if (localResultsList[i] == true)
+                {
+                    tempButton.BackColor = Color.Green;
+                }
+                else if (localResultsList[i] == false)
+                {
+                    tempButton.BackColor = Color.Red;
+                }
 
                 if (i % 5 == 0)
                 {
