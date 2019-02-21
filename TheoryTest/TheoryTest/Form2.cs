@@ -49,11 +49,17 @@ namespace TheoryTest
                 }
 
                 tempButton.Location = new Point(xCo + (xCo * multiplier), yCo);
+                tempButton.Click += new EventHandler(ButtonClick);
                 multiplier++;
                 tempButtonList.Add(tempButton);
                 Controls.Add(tempButton);
             }
             return tempButtonList;
+        }
+        private void ButtonClick(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            MessageBox.Show(clickedButton.Name + " Clicked");
         }
     }
 }

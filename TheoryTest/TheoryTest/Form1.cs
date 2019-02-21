@@ -42,28 +42,24 @@ namespace TheoryTest
             randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
             HideAndShowForQuiz();
         }
-
         private void TwentyQuestionButton_Click(object sender, EventArgs e)
         {
             NoOfQuestions = 20;
             randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
             HideAndShowForQuiz();
         }
-
         private void ThirtyQuestionButton_Click(object sender, EventArgs e)
         {
             NoOfQuestions = 30;
             randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
             HideAndShowForQuiz();
         }
-
         private void FortyQuestionButton_Click(object sender, EventArgs e)
         {
             NoOfQuestions = 40;
             randomQuestionArray = PickQuestions(questionArray, NoOfQuestions);
             HideAndShowForQuiz();
         }
-
         private void FiftyQuestionButton_Click(object sender, EventArgs e)
         {
             NoOfQuestions = 50;
