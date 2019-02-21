@@ -19,7 +19,8 @@ namespace TheoryTest
         Answer[] answerArray = new Answer[200];
         Question[] randomQuestionArray = new Question[50];
 
-        List<bool> resultsTrackingList = new List<bool> {};
+        List<bool> resultsTrackingList = new List<bool> { };
+        List<Result> resultsList = new List<Result> { };
 
         int QuestionNo = 0;
         int CorrectAnswers = 0;
@@ -127,7 +128,7 @@ namespace TheoryTest
         }
         private void HideForResults()
         {
-            new Form2(resultsTrackingList).Show();
+            new Form2(resultsList).Show();
             Hide();
         }
         private void SetQuestionTextAndNumbers()
@@ -275,16 +276,18 @@ namespace TheoryTest
             return tempQuestionArray;
         }
         private void CheckCorrectQuestion(Answer answerToCheck)
-        {
+        {            
             if (answerToCheck.GetCorrectAnswer() == true)
             {
                 CorrectAnswers = CorrectAnswers + 1;
                 CorrectAnswerNoLabel.Text = "" + CorrectAnswers;
-                resultsTrackingList.Add(true);
+                Result tempResult = new Result(questionArray[answerToCheck.GetLinkedQuestionID()], true);
+                resultsList.Add(tempResult);
             }
             else
             {
-                resultsTrackingList.Add(false);
+                Result tempResult = new Result(questionArray[answerToCheck.GetLinkedQuestionID()], false);
+                resultsList.Add(tempResult);
             }
         }
         private void NextQuestion()
@@ -376,5 +379,23 @@ namespace TheoryTest
             return localCorrectAnswer;
         }
 
+    }
+    public class Result
+    {
+        Question localLinkedQuestion;
+        bool localCorrectAnswer;
+        public Result(Question linkedQuestion, bool correctAnswer)
+        {
+            localLinkedQuestion = linkedQuestion;
+            localCorrectAnswer = correctAnswer;
+        }
+        public Question getQuestion()
+        {
+            return localLinkedQuestion;
+        }
+        public bool GetCorrectAnswer()
+        {
+            return localCorrectAnswer;
+        }
     }
 }

@@ -12,13 +12,13 @@ namespace TheoryTest
 {
     public partial class Form2 : Form
     {
-        public Form2(List<bool> passedResults)
+        public Form2(List<Result> passedResults)
         {
             InitializeComponent();
             List<Button> createdButtonsList = new List<Button> { };
             buttonCreation(passedResults);
         }
-        private List<Button> buttonCreation (List<bool> resultsList)
+        private List<Button> buttonCreation (List<Result> resultsList)
         {
             int startingXCo = 50;
             int xCo = 50;
@@ -32,11 +32,11 @@ namespace TheoryTest
                 tempButton.Name = "Button" + i.ToString();
                 tempButton.Text = tempButton.Name;
                 tempButton.Size = new Size(20, 20);
-                if (resultsList[i] == true)
+                if (resultsList[i].GetCorrectAnswer() == true)
                 {
                     tempButton.BackColor = Color.Green;
                 }
-                else if (resultsList[i] == false)
+                else if (resultsList[i].GetCorrectAnswer() == false)
                 {
                     tempButton.BackColor = Color.Red;
                 }
