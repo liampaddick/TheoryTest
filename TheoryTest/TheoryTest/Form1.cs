@@ -77,21 +77,21 @@ namespace TheoryTest
         {
             MainMenuText.Text = "AnswerButton1 pressed";
             Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
-            CheckCorrectQuestion(tempAnswerArray[0]);
+            CheckCorrectQuestion(tempAnswerArray[0], 0);
             NextQuestion();
         }
         private void AnswerButton2_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "AnswerButton2 pressed";
             Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
-            CheckCorrectQuestion(tempAnswerArray[1]);
+            CheckCorrectQuestion(tempAnswerArray[1], 1);
             NextQuestion();
         }
         private void AnswerButton3_Click(object sender, EventArgs e)
         {
             MainMenuText.Text = "AnswerButton3 pressed";
             Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
-            CheckCorrectQuestion(tempAnswerArray[2]);
+            CheckCorrectQuestion(tempAnswerArray[2], 2);
             NextQuestion();
 
         }
@@ -99,7 +99,7 @@ namespace TheoryTest
         {
             MainMenuText.Text = "AnswerButton4 pressed";
             Answer[] tempAnswerArray = randomQuestionArray[QuestionNo].GetPossibleAnswerArray();
-            CheckCorrectQuestion(tempAnswerArray[3]);
+            CheckCorrectQuestion(tempAnswerArray[3], 3);
             NextQuestion();
         }
 
@@ -275,18 +275,18 @@ namespace TheoryTest
             }
             return tempQuestionArray;
         }
-        private void CheckCorrectQuestion(Answer answerToCheck)
+        private void CheckCorrectQuestion(Answer answerToCheck, int passedAnswerIndex)
         {            
             if (answerToCheck.GetCorrectAnswer() == true)
             {
                 CorrectAnswers = CorrectAnswers + 1;
                 CorrectAnswerNoLabel.Text = "" + CorrectAnswers;
-                Result tempResult = new Result(questionArray[answerToCheck.GetLinkedQuestionID()], true);
+                Result tempResult = new Result(questionArray[answerToCheck.GetLinkedQuestionID()], true, passedAnswerIndex);
                 resultsList.Add(tempResult);
             }
             else
             {
-                Result tempResult = new Result(questionArray[answerToCheck.GetLinkedQuestionID()], false);
+                Result tempResult = new Result(questionArray[answerToCheck.GetLinkedQuestionID()], false, passedAnswerIndex);
                 resultsList.Add(tempResult);
             }
         }
@@ -384,10 +384,12 @@ namespace TheoryTest
     {
         Question localLinkedQuestion;
         bool localCorrectAnswer;
-        public Result(Question linkedQuestion, bool correctAnswer)
+        int localAnswerIndex;
+        public Result(Question linkedQuestion, bool correctAnswer, int answerIndex)
         {
             localLinkedQuestion = linkedQuestion;
             localCorrectAnswer = correctAnswer;
+            localAnswerIndex = answerIndex;
         }
         public Question getQuestion()
         {
@@ -396,6 +398,10 @@ namespace TheoryTest
         public bool GetCorrectAnswer()
         {
             return localCorrectAnswer;
+        }
+        public int GetAnswerIndex()
+        {
+            return localAnswerIndex;
         }
     }
 }
